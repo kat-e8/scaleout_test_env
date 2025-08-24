@@ -17,23 +17,15 @@ Vagrant.configure("2") do |config|
   config.vm.define "admin01" do |admin01|
     admin01.vm.hostname = "admin01"
     admin01.vm.network "private_network", ip: "10.9.8.10"
-    admin01.vm.provision "shell", inline: <<-SHELL
-        #provision git
-        sudo yum update
-        sudo yum install -y git
-        #provision docker
-        sudo yum install -y yum-utils device-mapper-persistent-data lvm2
-        sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-        sudo yum install -y docker-ce docker-ce-cli containerd.io
-        sudo systemctl start docker
-        sudo systemctl enable docker
-        sudo usermod -aG docker vagrant # Allow vagrant user to run docker commands without sudo
-      SHELL
   end
 
   config.vm.define "server01" do |server01|
     server01.vm.hostname = "server01"
     server01.vm.network "private_network", ip: "10.9.8.11"
+    #server01.vm.synced_folder "basic", "/opt/docker/test_env"
+    server01.vm.provider "virtualbox" do |vb|
+      vb.memory = "4096"
+    end
     server01.vm.provision "shell", inline: <<-SHELL
         #provision git
         sudo yum update
@@ -51,6 +43,11 @@ Vagrant.configure("2") do |config|
   config.vm.define "server02" do |server02|
     server02.vm.hostname = "server02"
     server02.vm.network "private_network", ip: "10.9.8.12"
+    #server02.vm.synced_folder "scaleout", "/opt/docker/test_env"
+    server02.vm.provider "virtualbox" do |vb|
+      vb.memory = "4096"
+    end
+
     server02.vm.provision "shell", inline: <<-SHELL
         #provision git
         sudo yum update
