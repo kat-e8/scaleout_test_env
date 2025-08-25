@@ -22,9 +22,9 @@ Vagrant.configure("2") do |config|
   config.vm.define "server01" do |server01|
     server01.vm.hostname = "server01"
     server01.vm.network "private_network", ip: "10.9.8.11"
-    #server01.vm.synced_folder "basic", "/opt/docker/test_env"
+    server01.vm.synced_folder "./basic", "/opt/docker/env"
     server01.vm.provider "virtualbox" do |vb|
-      vb.memory = "4096"
+      vb.memory = "6144"
     end
     server01.vm.provision "shell", inline: <<-SHELL
         #provision git
@@ -43,9 +43,9 @@ Vagrant.configure("2") do |config|
   config.vm.define "server02" do |server02|
     server02.vm.hostname = "server02"
     server02.vm.network "private_network", ip: "10.9.8.12"
-    #server02.vm.synced_folder "scaleout", "/opt/docker/test_env"
+    server02.vm.synced_folder "./scaleout", "/opt/docker/env"
     server02.vm.provider "virtualbox" do |vb|
-      vb.memory = "4096"
+      vb.memory = "6144"
     end
 
     server02.vm.provision "shell", inline: <<-SHELL

@@ -1,1 +1,1 @@
-{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"C:/Users/katlego.gagoopane/Documents/CSE/ScaleOut/multinet2","disabled":false,"__vagrantfile":true}}}
+{"virtualbox":{"/opt/docker/env":{"guestpath":"/opt/docker/env","hostpath":"C:/Users/katlego.gagoopane/Documents/CSE/ScaleOut/multinet2/basic","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"C:/Users/katlego.gagoopane/Documents/CSE/ScaleOut/multinet2","disabled":false,"__vagrantfile":true}}}
