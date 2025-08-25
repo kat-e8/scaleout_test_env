@@ -25,6 +25,7 @@ Vagrant.configure("2") do |config|
     server01.vm.synced_folder "./basic", "/opt/docker/env"
     server01.vm.provider "virtualbox" do |vb|
       vb.memory = "6144"
+      vb.cpus = "4"
     end
     server01.vm.provision "shell", inline: <<-SHELL
         #provision git
@@ -46,6 +47,7 @@ Vagrant.configure("2") do |config|
     server02.vm.synced_folder "./scaleout", "/opt/docker/env"
     server02.vm.provider "virtualbox" do |vb|
       vb.memory = "6144"
+      vb.cpus = "4"
     end
 
     server02.vm.provision "shell", inline: <<-SHELL
