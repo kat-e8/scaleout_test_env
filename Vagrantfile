@@ -31,6 +31,10 @@ Vagrant.configure("2") do |config|
         #provision git
         sudo yum update
         sudo yum install -y git
+         #provision git lfs
+        sudo yum install -y epel-release
+        sudo yum install -y git-lfs
+        git lfs install
         #provision docker
         sudo yum install -y yum-utils device-mapper-persistent-data lvm2
         sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
@@ -54,6 +58,10 @@ Vagrant.configure("2") do |config|
         #provision git
         sudo yum update
         sudo yum install -y git
+        #provision git lfs
+        sudo yum install -y epel-release
+        sudo yum install -y git-lfs
+        git lfs install
         #provision docker
         sudo yum install -y yum-utils device-mapper-persistent-data lvm2
         sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo

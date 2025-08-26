@@ -1,0 +1,2 @@
+server01: basic, edge
+server02: frontend, backend, edge
