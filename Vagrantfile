@@ -24,7 +24,7 @@ Vagrant.configure("2") do |config|
     server01.vm.network "private_network", ip: "10.9.8.11"
     server01.vm.synced_folder "./basic", "/opt/docker/env"
     server01.vm.provider "virtualbox" do |vb|
-      vb.memory = "6144"
+      vb.memory = "8192"
       vb.cpus = "4"
     end
     server01.vm.provision "shell", inline: <<-SHELL
@@ -46,7 +46,7 @@ Vagrant.configure("2") do |config|
     server02.vm.network "private_network", ip: "10.9.8.12"
     server02.vm.synced_folder "./scaleout", "/opt/docker/env"
     server02.vm.provider "virtualbox" do |vb|
-      vb.memory = "6144"
+      vb.memory = "8192"
       vb.cpus = "4"
     end
 
